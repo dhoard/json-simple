@@ -267,7 +267,7 @@ public class JSONValue {
      * @param s - Must not be null.
      * @param sb
      */
-    static void escape(String s, StringBuffer sb) {
+    public static void escape(String s, StringBuffer sb) {
     	final int len = s.length();
 		for(int i=0;i<len;i++){
 			char ch=s.charAt(i);

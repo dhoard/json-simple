@@ -2,26 +2,30 @@
  * $Id: JSONObject.java,v 1.1 2006/04/15 14:10:48 platform Exp $
  * Created on 2006-4-10
  */
-package org.json.simple;
+package org.json.simple.internal;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
+
+import org.json.simple.JSONAware;
+import org.json.simple.JSONStreamAware;
+import org.json.simple.JSONValue;
 
 /**
  * A JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
  * 
  * @author FangYidong<fangyidong@yahoo.com.cn>
  */
-public class InsertOrderJSONObject extends LinkedHashMap implements Map, JSONAware, JSONStreamAware{
+public class TreeMapJSONObject extends TreeMap implements Map, JSONAware, JSONStreamAware{
 	
 	private static final long serialVersionUID = -503443796854799292L;
 	
 	
-	public InsertOrderJSONObject() {
+	public TreeMapJSONObject() {
 		super();
 	}
 
@@ -31,7 +35,7 @@ public class InsertOrderJSONObject extends LinkedHashMap implements Map, JSONAwa
 	 * 
 	 * @param map
 	 */
-	public InsertOrderJSONObject(Map map) {
+	public TreeMapJSONObject(Map map) {
 		super(map);
 	}
 
