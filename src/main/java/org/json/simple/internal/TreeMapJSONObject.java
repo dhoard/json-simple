@@ -7,6 +7,7 @@ package org.json.simple.internal;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -39,6 +40,20 @@ public class TreeMapJSONObject extends TreeMap implements Map, JSONAware, JSONSt
 		super(map);
 	}
 
+	public Object put(Object object, Object value)
+	{		
+		if (value instanceof Number)
+		{
+			if ((value instanceof BigDecimal) == false)
+			{
+				value = new BigDecimal(value.toString());
+			}
+		}
+		
+		super.put(object, value);
+		
+		return value;
+	}
 
     /**
      * Encode a map into JSON text and write it to out.

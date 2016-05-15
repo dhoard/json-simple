@@ -7,6 +7,7 @@ package org.json.simple.internal;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -29,6 +30,21 @@ public class LinkedHashMapJSONObject extends LinkedHashMap implements Map, JSONA
 		super();
 	}
 
+	public Object put(Object object, Object value)
+	{		
+		if (value instanceof Number)
+		{
+			if ((value instanceof BigDecimal) == false)
+			{
+				value = new BigDecimal(value.toString());
+			}
+		}
+		
+		super.put(object, value);
+		
+		return value;
+	}
+	
 	/**
 	 * Allows creation of a JSONObject from a Map. After that, both the
 	 * generated JSONObject and the Map can be modified independently.
