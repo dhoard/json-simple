@@ -7,6 +7,7 @@ package org.json.simple;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -23,6 +24,21 @@ public class JSONObject extends HashMap implements Map, JSONAware, JSONStreamAwa
 	
 	public JSONObject() {
 		super();
+	}
+	
+	public Object put(Object object, Object value)
+	{		
+		if (value instanceof Number)
+		{
+			if ((value instanceof BigDecimal) == false)
+			{
+				value = new BigDecimal(value.toString());
+			}
+		}
+		
+		super.put(object, value);
+		
+		return value;
 	}
 
 	/**
