@@ -605,8 +605,8 @@ int getPosition(){
           }
         case 32: break;
         case 21: 
-          { //Double val=Double.valueOf(yytext()); return new Yytoken(Yytoken.TYPE_VALUE, val);
-        	  BigDecimal val = new BigDecimal(yytext()); return new Yytoken(Yytoken.TYPE_VALUE, val);
+          {
+        	  BigDecimal val = new BigDecimal(yytext()).stripTrailingZeros(); return new Yytoken(Yytoken.TYPE_VALUE, val);
           }
         case 33: break;
         case 1: 
