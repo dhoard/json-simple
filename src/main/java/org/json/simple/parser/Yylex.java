@@ -660,7 +660,8 @@ int getPosition(){
           }
         case 44: break;
         case 2: 
-          { Long val=Long.valueOf(yytext()); return new Yytoken(Yytoken.TYPE_VALUE, val);
+          {
+        	  BigDecimal val = new BigDecimal(yytext()).stripTrailingZeros(); return new Yytoken(Yytoken.TYPE_VALUE, val);
           }
         case 45: break;
         case 18: 
