@@ -24,6 +24,7 @@ public class JSONObjectTM extends JSONObject
 		jsonObject = new TreeMapJSONObject();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public JSONObjectTM(Map map)
 	{
 		this();
@@ -85,6 +86,7 @@ public class JSONObjectTM extends JSONObject
 		return jsonObject.containsKey(key);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void putAll(Map m)
 	{
 		jsonObject.putAll(m);
@@ -105,26 +107,31 @@ public class JSONObjectTM extends JSONObject
 		return jsonObject.containsValue(value);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Set keySet()
 	{
 		return jsonObject.keySet();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Collection values()
 	{
 		return jsonObject.values();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Set entrySet()
 	{
 		return jsonObject.entrySet();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Object getOrDefault(Object key, Object defaultValue)
 	{
 		return jsonObject.getOrDefault(key, defaultValue);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Object putIfAbsent(Object key, Object value)
 	{
 		return jsonObject.putIfAbsent(key, value);
@@ -135,41 +142,49 @@ public class JSONObjectTM extends JSONObject
 		return jsonObject.remove(key, value);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean replace(Object key, Object oldValue, Object newValue)
 	{
 		return jsonObject.replace(key, oldValue, newValue);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Object replace(Object key, Object value)
 	{
 		return jsonObject.replace(key, value);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object computeIfAbsent(Object key, Function mappingFunction)
 	{
 		return jsonObject.computeIfAbsent(key, mappingFunction);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object computeIfPresent(Object key, BiFunction remappingFunction)
 	{
 		return jsonObject.computeIfPresent(key, remappingFunction);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object compute(Object key, BiFunction remappingFunction)
 	{
 		return jsonObject.compute(key, remappingFunction);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object merge(Object key, Object value, BiFunction remappingFunction)
 	{
 		return jsonObject.merge(key, value, remappingFunction);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void forEach(BiConsumer action)
 	{
 		jsonObject.forEach(action);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void replaceAll(BiFunction function)
 	{
 		jsonObject.replaceAll(function);

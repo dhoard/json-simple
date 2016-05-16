@@ -10,6 +10,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Collection;
+import java.util.List;
 // import java.util.List;
 import java.util.Map;
 
@@ -258,16 +259,12 @@ public class JSONValue {
 	public static String escape(String s){
 		if(s==null)
 			return null;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         escape(s, sb);
         return sb.toString();
     }
 
-    /**
-     * @param s - Must not be null.
-     * @param sb
-     */
-    public static void escape(String s, StringBuffer sb) {
+    public static void escape(String s, StringBuilder sb) {
     	final int len = s.length();
 		for(int i=0;i<len;i++){
 			char ch=s.charAt(i);
@@ -312,5 +309,4 @@ public class JSONValue {
 			}
 		}//for
 	}
-
 }
